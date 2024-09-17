@@ -25,22 +25,22 @@ If you prefer this content in video form, check out these videos from Practical 
 - [Network Devices - Hub, Bridge, Switch, Router - Networking Fundamentals - Lesson 1b](https://www.youtube.com/watch?v=H7-NR3Q3BeI&list=PLIFyRwBY_4bRLmKfP1KnZA6rZbRHtxmXi&index=3)
 
 **Host** are any devices which send or receive traffic.
-![Host](/images/1.introduce/001-host.png) 
+![Host](/Workshop001/images/1.introduce/001-host.png) 
 
 **IP Address** the identity of each host.
-![IP Address](/images/1.introduce/002-IPAddress.png) 
+![IP Address](/Workshop001/images/1.introduce/002-IPAddress.png) 
 
 **Network** is what transports traffic between hosts. If we did not have networks there would be a lot of manual movement of data!
 
 A logical group of hosts which require similar connectivity.
-![Network](/images/1.introduce/003-network.png) 
+![Network](/Workshop001/images/1.introduce/003-network.png) 
 
 **Switches** facilitate communication **within** a network. A switch forwards data packets between hosts. A switch sends packets directly to hosts.
 
 - Network: A Grouping of hosts which require similar connectivity.
 - Hosts on a Network share the same IP address space.
 
-![Switch](/images/1.introduce/004-switches.png) 
+![Switch](/Workshop001/images/1.introduce/004-switches.png) 
 
 **Router** facilitates communication between networks. As we said before that a switch looks after communication within a network a router allows us to join these networks together or at least give them access to each other if permitted.
 
@@ -51,7 +51,7 @@ Routers learn which networks they are attached to. These are known as routes, a 
 A router has an IP address in the networks they are attached to. This IP is also going to be each host's way out of their local network also known as a gateway.
 
 Routers also create the hierarchy in networks I mentioned earlier.
-![Switch](/images/1.introduce/005-router.png) 
+![Switch](/Workshop001/images/1.introduce/005-router.png) 
 
 ### Switches vs Routers
 **Routing** is the process of moving data between networks.

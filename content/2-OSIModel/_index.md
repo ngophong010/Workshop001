@@ -20,21 +20,21 @@ The rules for networking are divided into seven different layers and those layer
 
 #### Introduction to the OSI Model
 The OSI Model (Open Systems Interconnection Model) is a framework used to describe the functions of a networking system. The OSI model characterises computing functions into a universal set of rules and requirements to support interoperability between different products and software. In the OSI reference model, the communications between a computing system are split into seven different abstraction layers: **Physical, Data Link, Network, Transport, Session, Presentation, and Application.**
-![the OSI Model](/images/2.OSIModel/001-theOSIModel.png) 
+![the OSI Model](/Workshop001/images/2.OSIModel/001-theOSIModel.png) 
 
 #### Physical
 Layer 1 in the OSI model and this is known as physical, the premise of being able to get data from one host to another through a means be it physical cable or we could also consider Wi-Fi in this layer as well. We might also see some more legacy hardware seen here around hubs and repeaters to transport the data from one host to another.
-![Physical Layer](/images/2.OSIModel/002-physical.png) 
+![Physical Layer](/Workshop001/images/2.OSIModel/002-physical.png) 
 
 #### Data Link
 Layer 2, the data link enables a node to node transfer where data is packaged into frames. There is also a level of error correcting that might have occurred at the physical layer. This is also where we introduce or first see MAC addresses.
-![Data Link Layer](/images/2.OSIModel/003-dataLink.png) 
+![Data Link Layer](/Workshop001/images/2.OSIModel/003-dataLink.png) 
 
 #### Network
 You have likely heard the term layer 3 switches or layer 2 switches. In our OSI model Layer 3, the Network has a goal of an end to end delivery, this is where we see our IP addresses also mentioned in the first-day overview.
 
 Routers and hosts exist at layer 3, remember the router is the ability to route between multiple networks. Anything with an IP could be considered Layer 3.
-![Network Layer](/images/2.OSIModel/004-network.png) 
+![Network Layer](/Workshop001/images/2.OSIModel/004-network.png) 
 
 So why do we need addressing schemes on both Layers 2 and 3? (MAC Addresses vs IP Addresses)
 
@@ -50,7 +50,7 @@ Now there is a network protocol that we will get into but not today called ARP(A
 
 #### Transport
 Service to Service delivery, Layer 4 is there to distinguish data streams. In the same way that Layer 3 and Layer 2 both had their addressing schemes, in Layer 4 we have ports.
-![Transport Layer](/images/2.OSIModel/005-transport.png) 
+![Transport Layer](/Workshop001/images/2.OSIModel/005-transport.png) 
 
 #### Session, Presentation, Application
 The distinction between Layers 5,6,7 is or had become somewhat vague.
@@ -70,10 +70,10 @@ This segment is going to be passed down the OSI stack to layer 3, the network la
 Layer 3 will then take that packet and hand it off to layer 2, layer 2 will once again add another header to that data to accomplish layer 2's goal of hop to hop delivery meaning this header will include a source and destination mac address. This is known as a frame when you have the layer 2 header and data.
 
 That frame then gets converted into ones and zeros and sent over the Layer 1 Physical cable or wifi.
-![OSI Model - Application](/images/2.OSIModel/006-application.png) 
+![OSI Model - Application](/Workshop001/images/2.OSIModel/006-application.png) 
 
 I did mention above the naming for each layer of header plus data but decided to draw this out as well.
-![OSI Model - Data](/images/2.OSIModel/007-application.png) 
+![OSI Model - Data](/Workshop001/images/2.OSIModel/007-application.png) 
 
 The Application sending the data is being sent somewhere so the receiving is somewhat in reverse to get that back up the stack and into the receiving host.
-![OSI Model - Application](/images/2.OSIModel/008-application.png) 
+![OSI Model - Application](/Workshop001/images/2.OSIModel/008-application.png) 

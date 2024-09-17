@@ -53,7 +53,7 @@ We are going to do everything on EVE-NG with the community edition.
 The community edition comes in ISO and OVF formats for [download](https://www.eve-ng.net/index.php/download/)
 
 We will be using the OVF download but with the ISO there is the option to build out on a bare metal server without the need for a hypervisor.
-![Download Eve](/images/5.PythonForNetworkAutomation/001-downloadEve.png) 
+![Download Eve](/Workshop001/images/5.PythonForNetworkAutomation/001-downloadEve.png) 
 
 For our walkthrough, we will be using VMware Workstation as I have a license via my vExpert but you can equally use VMware Player or any of the other options mentioned in the [documentation](https://www.eve-ng.net/index.php/documentation/installation/system-requirement/). Unfortunately we cannot use our previously used Virtual box!
 
@@ -69,21 +69,21 @@ Now we have our hypervisor software downloaded and installed, and we have the EV
 We are now ready to get things configured.
 
 Open VMware Workstation and then select `file` and `open`
-![VMware Setup](/images/5.PythonForNetworkAutomation/002-vMware.png) 
+![VMware Setup](/Workshop001/images/5.PythonForNetworkAutomation/002-vMware.png) 
 
 When you download the EVE-NG OVF Image it is going to be within a compressed file. Extract the contents out into its folder so it looks like this.
-![VMware Setup](/images/5.PythonForNetworkAutomation/003-vMware.png) 
+![VMware Setup](/Workshop001/images/5.PythonForNetworkAutomation/003-vMware.png) 
 
 Navigate to the location where you downloaded the EVE-NG OVF image and begin the import.
 
 Give it a recognisable name and store the virtual machine somewhere on your system.
-![VMware Setup](/images/5.PythonForNetworkAutomation/004-vMware.png) 
+![VMware Setup](/Workshop001/images/5.PythonForNetworkAutomation/004-vMware.png) 
 
 When the import is complete increase the number of processors to 4 and the memory allocated to 8 GB. (This should be the case after import with the latest version if not then edit VM settings)
 
 Also, make sure the Virtualise Intel VT-x/EPT or AMD-V/RVI checkbox is enabled. This option instructs the VMware workstation to pass the virtualisation flags to the guest OS (nested virtualisation) This was the issue I was having with GNS3 with Virtual Box even though my CPU allows this.
 
-![VMware Setup](/images/5.PythonForNetworkAutomation/005-vMware.png) 
+![VMware Setup](/Workshop001/images/5.PythonForNetworkAutomation/005-vMware.png) 
 
 ### Power on & Access
 Sidenote & Rabbit hole: Remember I mentioned that this would not work with VirtualBox! Well yeah had the same issue with VMware Workstation and EVE-NG but it was not the fault of the virtualisation platform!
@@ -101,7 +101,7 @@ When you want to go back and use WSL2 then you will need to run this command and
 Both of these commands should be run as administrator!
 
 Ok back to the show, You should now have a powered-on machine in VMware Workstation and you should have a prompt looking similar to this.
-![Eve-NG - Setup](/images/5.PythonForNetworkAutomation/006-eVE-ng.png) 
+![Eve-NG - Setup](/Workshop001/images/5.PythonForNetworkAutomation/006-eVE-ng.png) 
 
 On the prompt above you can use:
 
@@ -110,23 +110,23 @@ username = root password = eve
 You will then be asked to provide the root password again, this will be used to SSH into the host later on.
 
 We then can change the hostname.
-![Eve-NG - Setup](/images/5.PythonForNetworkAutomation/007-eVE-ng.png) 
+![Eve-NG - Setup](/Workshop001/images/5.PythonForNetworkAutomation/007-eVE-ng.png) 
 
 Next, we define a DNS Domain Name, I have used the one below but I am not sure if this will need to be changed later on.
-![Eve-NG - Setup](/images/5.PythonForNetworkAutomation/008-eVE-ng.png) 
+![Eve-NG - Setup](/Workshop001/images/5.PythonForNetworkAutomation/008-eVE-ng.png) 
 
 We then configure networking, I am selecting static so that the IP address given will be persistent after reboots.
-![Eve-NG - Setup](/images/5.PythonForNetworkAutomation/009-eVE-ng.png) 
+![Eve-NG - Setup](/Workshop001/images/5.PythonForNetworkAutomation/009-eVE-ng.png) 
 
 The final step, provide a static IP address from a network that is reachable from your workstation.
-![Eve-NG - Setup](/images/5.PythonForNetworkAutomation/010-eVE-ng.png) 
+![Eve-NG - Setup](/Workshop001/images/5.PythonForNetworkAutomation/010-eVE-ng.png) 
 
 There are some additional steps here where you will have to provide a subnet mask for your network, default gateway and DNS.
 
 Once finished it will reboot, when it is back up you can take your static IP address and put this into your browser.
-![EVE Login Console](/images/5.PythonForNetworkAutomation/011-eVE-ng.png) 
+![EVE Login Console](/Workshop001/images/5.PythonForNetworkAutomation/011-eVE-ng.png) 
 
 The default username for the GUI is `admin` and the password is `eve` while the default username for SSH is `root` and the password is `eve` but this would have been changed if you changed during the setup.
-![EVE Login Console](/images/5.PythonForNetworkAutomation/012-eVE-ng.png) 
+![EVE Login Console](/Workshop001/images/5.PythonForNetworkAutomation/012-eVE-ng.png) 
 
 I chose HTML5 for the console vs native as this will open a new tab in your browser when you are navigating through different consoles.

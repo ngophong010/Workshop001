@@ -53,7 +53,7 @@ Chúng ta sẽ làm mọi thứ trên EVE-NG với phiên bản cộng đồng.
 Phiên bản cộng đồng có sẵn dưới dạng ISO và OVF để [tải xuống](https://www.eve-ng.net/index.php/download/)
 
 Chúng ta sẽ sử dụng bản tải xuống OVF nhưng với ISO, có tùy chọn xây dựng trên máy chủ bare metal mà không cần hypervisor.
-![Tải xuống Eve](/images/5.PythonForNetworkAutomation/001-downloadEve.png) 
+![Tải xuống Eve](/Workshop001/images/5.PythonForNetworkAutomation/001-downloadEve.png) 
 
 Đối với hướng dẫn của chúng ta, chúng ta sẽ sử dụng VMware Workstation vì tôi có giấy phép thông qua vExpert của mình nhưng bạn cũng có thể sử dụng VMware Player hoặc bất kỳ tùy chọn nào khác được đề cập trong [tài liệu](https://www.eve-ng.net/index.php/documentation/installation/system-requirement/). Rất tiếc, chúng ta không thể sử dụng Virtual box mà chúng ta đã sử dụng trước đó!
 
@@ -69,21 +69,21 @@ Bây giờ chúng ta đã tải xuống và cài đặt phần mềm hypervisor 
 Bây giờ chúng ta đã sẵn sàng để cấu hình mọi thứ.
 
 Mở VMware Workstation và sau đó chọn `file` và `open`
-![Thiết lập VMware](/images/5.PythonForNetworkAutomation/002-vMware.png) 
+![Thiết lập VMware](/Workshop001/images/5.PythonForNetworkAutomation/002-vMware.png) 
 
 Khi bạn tải xuống EVE-NG OVF Image, nó sẽ nằm trong một file nén. Giải nén nội dung ra thành một thư mục riêng để nó trông giống như thế này.
-![Thiết lập VMware](/images/5.PythonForNetworkAutomation/003-vMware.png) 
+![Thiết lập VMware](/Workshop001/images/5.PythonForNetworkAutomation/003-vMware.png) 
 
 Điều hướng đến vị trí nơi bạn đã tải xuống EVE-NG OVF image và bắt đầu nhập.
 
 Đặt cho nó một tên dễ nhận biết và lưu trữ máy ảo ở đâu đó trên hệ thống của bạn.
-![Thiết lập VMware](/images/5.PythonForNetworkAutomation/004-vMware.png) 
+![Thiết lập VMware](/Workshop001/images/5.PythonForNetworkAutomation/004-vMware.png) 
 
 Khi quá trình nhập hoàn tất, hãy tăng số lượng bộ xử lý lên 4 và bộ nhớ được phân bổ lên 8 GB. (Điều này sẽ được thực hiện sau khi nhập với phiên bản mới nhất, nếu không thì hãy chỉnh sửa cài đặt VM)
 
 Ngoài ra, hãy đảm bảo rằng hộp kiểm Virtualise Intel VT-x/EPT hoặc AMD-V/RVI được bật. Tùy chọn này hướng dẫn VMware workstation chuyển các cờ ảo hóa sang hệ điều hành khách (ảo hóa lồng nhau) Đây là vấn đề tôi đang gặp phải với GNS3 với Virtual Box mặc dù CPU của tôi cho phép điều này.
 
-![Thiết lập VMware](/images/5.PythonForNetworkAutomation/005-vMware.png) 
+![Thiết lập VMware](/Workshop001/images/5.PythonForNetworkAutomation/005-vMware.png) 
 
 ### Bật nguồn & Truy cập
 Lưu ý & Đường vòng: Nhớ rằng tôi đã đề cập rằng điều này sẽ không hoạt động với VirtualBox! Vâng, tôi đã gặp vấn đề tương tự với VMware Workstation và EVE-NG nhưng không phải do lỗi của nền tảng ảo hóa!
@@ -101,7 +101,7 @@ Khi bạn muốn quay lại và sử dụng WSL2, bạn sẽ cần chạy lệnh
 Cả hai lệnh này đều phải được chạy với quyền quản trị!
 
 Ok quay lại chương trình, Bây giờ bạn nên có một máy đã được bật trong VMware Workstation và bạn nên có một lời nhắc trông giống như thế này.
-![Eve-NG - Thiết lập](/images/5.PythonForNetworkAutomation/006-eVE-ng.png) 
+![Eve-NG - Thiết lập](/Workshop001/images/5.PythonForNetworkAutomation/006-eVE-ng.png) 
 
 Trên lời nhắc trên bạn có thể sử dụng:
 
@@ -110,23 +110,23 @@ tên người dùng = root mật khẩu = eve
 Sau đó bạn sẽ được yêu cầu cung cấp lại mật khẩu root, điều này sẽ được sử dụng để SSH vào máy chủ sau này.
 
 Sau đó chúng ta có thể thay đổi tên máy chủ.
-![Eve-NG - Thiết lập](/images/5.PythonForNetworkAutomation/007-eVE-ng.png) 
+![Eve-NG - Thiết lập](/Workshop001/images/5.PythonForNetworkAutomation/007-eVE-ng.png) 
 
 Tiếp theo, chúng ta xác định Tên miền DNS, tôi đã sử dụng tên dưới đây nhưng tôi không chắc liệu điều này có cần thay đổi sau này hay không.
-![Eve-NG - Thiết lập](/images/5.PythonForNetworkAutomation/008-eVE-ng.png) 
+![Eve-NG - Thiết lập](/Workshop001/images/5.PythonForNetworkAutomation/008-eVE-ng.png) 
 
 Sau đó chúng ta cấu hình mạng, tôi chọn static để địa chỉ IP được cấp sẽ được giữ nguyên sau khi khởi động lại.
-![Eve-NG - Thiết lập](/images/5.PythonForNetworkAutomation/009-eVE-ng.png) 
+![Eve-NG - Thiết lập](/Workshop001/images/5.PythonForNetworkAutomation/009-eVE-ng.png) 
 
 Bước cuối cùng, cung cấp địa chỉ IP tĩnh từ mạng có thể truy cập được từ máy trạm của bạn.
-![Eve-NG - Thiết lập](/images/5.PythonForNetworkAutomation/010-eVE-ng.png) 
+![Eve-NG - Thiết lập](/Workshop001/images/5.PythonForNetworkAutomation/010-eVE-ng.png) 
 
 Có một số bước bổ sung ở đây nơi bạn sẽ phải cung cấp mặt nạ mạng con cho mạng của mình, cổng mặc định và DNS.
 
 Khi hoàn tất, nó sẽ khởi động lại, khi nó hoạt động trở lại, bạn có thể lấy địa chỉ IP tĩnh của mình và đặt nó vào trình duyệt của bạn.
-![Bảng điều khiển đăng nhập EVE](/images/5.PythonForNetworkAutomation/011-eVE-ng.png) 
+![Bảng điều khiển đăng nhập EVE](/Workshop001/images/5.PythonForNetworkAutomation/011-eVE-ng.png) 
 
 Tên người dùng mặc định cho GUI là `admin` và mật khẩu là `eve` trong khi tên người dùng mặc định cho SSH là `root` và mật khẩu là `eve` nhưng điều này đã được thay đổi nếu bạn đã thay đổi trong quá trình thiết lập.
-![Bảng điều khiển đăng nhập EVE](/images/5.PythonForNetworkAutomation/012-eVE-ng.png) 
+![Bảng điều khiển đăng nhập EVE](/Workshop001/images/5.PythonForNetworkAutomation/012-eVE-ng.png) 
 
 Tôi đã chọn HTML5 cho bảng điều khiển thay vì native vì điều này sẽ mở một tab mới trong trình duyệt của bạn khi bạn đang điều hướng qua các bảng điều khiển khác nhau.

@@ -26,24 +26,24 @@ Nếu bạn thích nội dung này dưới dạng video, hãy xem các video t�
 
 **Host** là bất kỳ thiết bị nào gửi hoặc nhận lưu lượng.
 
-![Host](/images/1.introduce/001-host.png) 
+![Host](/Workshop001/images/1.introduce/001-host.png) 
 
 **Địa chỉ IP** là danh tính của mỗi host.
 
-![Địa chỉ IP](/images/1.introduce/002-IPAddress.png) 
+![Địa chỉ IP](/Workshop001/images/1.introduce/002-IPAddress.png) 
 
 **Mạng** là cái gì đó vận chuyển lưu lượng giữa các host. Nếu không có mạng, sẽ có rất nhiều chuyển động dữ liệu thủ công!
 
 Một nhóm logic của các host cần có kết nối tương tự.
 
-![Mạng](/images/1.introduce/003-network.png) 
+![Mạng](/Workshop001/images/1.introduce/003-network.png) 
 
 **Switch** tạo điều kiện cho việc giao tiếp **trong** một mạng. Một switch chuyển tiếp các gói dữ liệu giữa các host. Một switch gửi gói đến trực tiếp các host.
 
 - Mạng: Một nhóm các host cần có kết nối tương tự.
 - Các host trên một mạng chia sẻ cùng một không gian địa chỉ IP.
 
-![Switch](/images/1.introduce/004-switches.png) 
+![Switch](/Workshop001/images/1.introduce/004-switches.png) 
 
 **Router** tạo điều kiện cho việc giao tiếp giữa các mạng. Như chúng ta đã nói trước đó, một switch quản lý giao tiếp trong một mạng, trong khi router cho phép chúng ta kết nối các mạng này với nhau hoặc ít nhất là cho phép chúng truy cập lẫn nhau nếu được phép.
 
@@ -55,7 +55,7 @@ Một router có một địa chỉ IP trong các mạng mà nó được kết 
 
 Router cũng tạo ra sự phân cấp trong các mạng mà tôi đã đề cập trước đó.
 
-![Router](/images/1.introduce/005-router.png) 
+![Router](/Workshop001/images/1.introduce/005-router.png) 
 
 ### Switch so với Router
 **Định tuyến** là quá trình di chuyển dữ liệu giữa các mạng.
