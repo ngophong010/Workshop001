@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="vi" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.110.0">
+    <meta name="description" content="">
+<meta name="author" content="journeyoftheaverageguy@gmail.com">
+
+    <link rel="icon" href="/Workshop001/images/favicon.png" type="image/png">
+
+    <title>Python cho Tự động hóa Mạng :: Tìm hiểu về DevOps và Networking</title>
+
+    
+    <link href="/Workshop001/css/nucleus.css?1726587100" rel="stylesheet">
+    <link href="/Workshop001/css/fontawesome-all.min.css?1726587100" rel="stylesheet">
+    <link href="/Workshop001/css/hybrid.css?1726587100" rel="stylesheet">
+    <link href="/Workshop001/css/featherlight.min.css?1726587100" rel="stylesheet">
+    <link href="/Workshop001/css/perfect-scrollbar.min.css?1726587100" rel="stylesheet">
+    <link href="/Workshop001/css/auto-complete.css?1726587100" rel="stylesheet">
+    <link href="/Workshop001/css/atom-one-dark-reasonable.css?1726587100" rel="stylesheet">
+    <link href="/Workshop001/css/theme.css?1726587100" rel="stylesheet">
+    <link href="/Workshop001/css/hugo-theme.css?1726587100" rel="stylesheet">
+    
+    <link href="/Workshop001/css/theme-workshop.css?1726587100" rel="stylesheet">
+    
+    
+
+    <script src="/Workshop001/js/jquery-3.3.1.min.js?1726587100"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/Workshop001/vi/5-pythonfornetworkautomation/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="30%"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f90;fill-rule:evenodd;}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"></path><path class="cls-2" d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"></path><path class="cls-2" d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"></path></svg>
+
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/Workshop001/js/lunr.min.js?1726587100"></script>
+<script type="text/javascript" src="/Workshop001/js/auto-complete.js?1726587100"></script>
+<script type="text/javascript">
+    
+        var baseurl = "https:\/\/ngophong010.github.io\/Workshop001\/\/vi";
+    
+</script>
+<script type="text/javascript" src="/Workshop001/js/search.js?1726587100"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/Workshop001/vi/1-introduce/" title="Giới thiệu" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/Workshop001/vi/1-introduce/">
+           <b> 1. </b> Giới thiệu
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/Workshop001/vi/2-osimodel/" title="Mô Hình OSI - 7 Lớp" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/Workshop001/vi/2-osimodel/">
+          <b> 2. </b>Mô Hình OSI - 7 Lớp
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/Workshop001/vi/3-networkprotocols/" title="Giao thức Mạng" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/Workshop001/vi/3-networkprotocols/">
+           <b> 3. </b> Giao thức Mạng
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/Workshop001/vi/4-networkautomation/" title="Tự động hóa mạng" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/Workshop001/vi/4-networkautomation/">
+           <b> 4. </b> Tự động hóa mạng
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/Workshop001/vi/5-pythonfornetworkautomation/" title="Python cho Tự động hóa Mạng" class="dd-item 
+        
+        active
+        
+        ">
+      <a href="/Workshop001/vi/5-pythonfornetworkautomation/">
+           <b> 5. </b> Python cho Tự động hóa Mạng
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/Workshop001/vi/6-buildingourlab/" title="Xây Dựng Phòng Thí Nghiệm" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/Workshop001/vi/6-buildingourlab/">
+          <b>6. </b>Xây Dựng Phòng Thí Nghiệm
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/Workshop001/vi/7-hands-on/" title="Thực Hành với Python &amp; Mạng" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/Workshop001/vi/7-hands-on/">
+          <b>7. </b>Thực Hành với Python &amp; Mạng
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="https://www.facebook.com/groups/awsstudygroupfcj/"><i class='fab fa-facebook'></i> AWS Study Group</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en" value="https://ngophong010.github.io/Workshop001/5-pythonfornetworkautomation/">English</option>
+                    
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="vi" value="https://ngophong010.github.io/Workshop001/vi/5-pythonfornetworkautomation/" selected>Tiếng Việt</option>
+                    
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <left>
+    
+     <b> Workshop</b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7920860&style=0038&nbdigits=9&type=page&initCount=0" title="Migrate" Alt="web counter"   border="0" /></a>  <br>
+     <b> <a href="https://cloudjourney.awsstudygroup.com/">Cloud Journey</a></b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0" title="Total CLoud Journey" Alt="web counter"   border="0"   />
+     
+</left>
+<left>
+    <br>
+    <br>
+        <b> Last Updated </b> <br>
+        <i><font color=orange>10-09-2024</font></i>
+    </left>
+    <left>
+        <br>
+        <br>
+            <b> Team </b> <br>
+           
+            <i> 
+                <a href="https://www.linkedin.com/in/"  style="color:orange">Lâm Phong  </a> <br>
+                
+               
+        </i>
+        </left>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            <a href='/Workshop001/vi/'>DevOps and Networking</a> > Python cho Tự động hóa Mạng
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#python-cho-tự-động-hóa-mạng">Python cho Tự động hóa Mạng</a></li>
+        <li><a href="#thiết-lập-môi-trường-thử-nghiệm">Thiết lập môi trường thử nghiệm</a></li>
+        <li><a href="#bật-nguồn--truy-cập">Bật nguồn &amp; Truy cập</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Python cho Tự động hóa Mạng
+            </h1>
+          
+
+        
+
+
+
+	<h3 id="python-cho-tự-động-hóa-mạng">Python cho Tự động hóa Mạng</h3>
+<p>Python là ngôn ngữ tiêu chuẩn được sử dụng cho các hoạt động mạng tự động.</p>
+<p>Mặc dù không chỉ dành riêng cho tự động hóa mạng, Python dường như xuất hiện ở khắp nơi khi bạn tìm kiếm tài nguyên và như đã đề cập trước đó, nếu không phải là Python thì thường là Ansible, cũng được viết bằng Python.</p>
+<ul>
+<li>Dễ đọc và dễ sử dụng - Có vẻ như Python dễ hiểu. Dường như không có yêu cầu về <code>{}</code> trong mã để bắt đầu và kết thúc các khối. Kết hợp điều này với một IDE mạnh mẽ như VS Code, bạn có một khởi đầu khá dễ dàng khi muốn chạy một số mã Python.</li>
+</ul>
+<p>Pycharm có thể là một IDE khác đáng được đề cập ở đây.</p>
+<ul>
+<li>Thư viện - Khả năng mở rộng của Python là kho báu thực sự ở đây, tôi đã đề cập trước đó rằng điều này không chỉ dành cho Tự động hóa Mạng mà thực tế, có rất nhiều thư viện cho tất cả các loại thiết bị và cấu hình. Bạn có thể thấy số lượng lớn ở đây <a href="https://pypi.org/">PyPi</a></li>
+</ul>
+<p>Khi bạn muốn tải thư viện về máy trạm của mình, bạn sử dụng một công cụ gọi là pip để kết nối với PyPI và tải nó về máy cục bộ. Các nhà cung cấp mạng như Cisco, Juniper và Arista đã phát triển các thư viện để tạo điều kiện truy cập vào thiết bị của họ.</p>
+<ul>
+<li>Mạnh mẽ &amp; Hiệu quả - Nhớ lại trong những ngày Go, tôi đã trải qua kịch bản &ldquo;Hello World&rdquo; và chúng ta đã đi qua tôi nghĩ là 6 dòng mã? Trong Python, nó chỉ là</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>print(&#39;hello world&#39;)
+</span></span></code></pre></div><p>Khi tổng hợp tất cả các điểm trên, dễ dàng thấy được lý do tại sao Python thường được nhắc đến như công cụ mặc định khi làm việc với tự động hóa.</p>
+<p>Điều quan trọng cần lưu ý là có thể vài năm trước đã có các script tương tác với thiết bị mạng để tự động hóa sao lưu cấu hình hoặc thu thập nhật ký và thông tin chi tiết khác về thiết bị của bạn. Tự động hóa mà chúng ta đang nói đến ở đây hơi khác một chút vì tổng thể cảnh quan mạng cũng đã thay đổi để phù hợp hơn với cách suy nghĩ này và cho phép tự động hóa nhiều hơn.</p>
+<ul>
+<li>
+<p>Mạng Định nghĩa bằng Phần mềm - Các bộ điều khiển SDN chịu trách nhiệm cung cấp cấu hình mặt phẳng điều khiển cho tất cả các thiết bị trên mạng, có nghĩa là chỉ cần một điểm liên hệ duy nhất cho bất kỳ thay đổi mạng nào, không còn phải telnet hoặc SSH vào từng thiết bị và cũng không phải dựa vào con người để thực hiện điều này, điều có thể dẫn đến lỗi hoặc cấu hình sai lặp đi lặp lại.</p>
+</li>
+<li>
+<p>Điều phối Cấp cao - Đi lên một cấp từ các bộ điều khiển SDN đó và điều này cho phép điều phối các cấp độ dịch vụ, sau đó là tích hợp lớp điều phối này vào các nền tảng bạn chọn, VMware, Kubernetes, Public Clouds, v.v.</p>
+</li>
+<li>
+<p>Quản lý dựa trên Chính sách - Bạn muốn có gì? Trạng thái mong muốn là gì? Bạn mô tả điều này và hệ thống có tất cả các chi tiết về cách tìm ra để trở thành trạng thái mong muốn.</p>
+</li>
+</ul>
+<h3 id="thiết-lập-môi-trường-thử-nghiệm">Thiết lập môi trường thử nghiệm</h3>
+<p>Không phải ai cũng có quyền truy cập vào các bộ định tuyến, switch và các thiết bị mạng vật lý khác.</p>
+<p>Tôi muốn cho phép chúng ta xem xét một số công cụ đã đề cập trước đó nhưng cũng thực hành và học cách tự động hóa cấu hình mạng của chúng ta.</p>
+<p>Khi nói đến các tùy chọn, có một vài lựa chọn mà chúng ta có thể chọn.</p>
+<ul>
+<li><a href="https://www.gns3.com/software/download-vm">GNS3 VM</a></li>
+<li><a href="https://www.eve-ng.net/">Eve-ng</a></li>
+<li><a href="https://unimus.net/">Unimus</a> Không phải là môi trường thử nghiệm nhưng là một khái niệm thú vị.</li>
+</ul>
+<p>Chúng ta sẽ xây dựng phòng thí nghiệm của mình bằng <a href="https://www.eve-ng.net/">Eve-ng</a> như đã đề cập trước đó, bạn có thể sử dụng thiết bị vật lý nhưng để nói thật, môi trường ảo có nghĩa là chúng ta có thể có một môi trường sandbox để thử nghiệm nhiều kịch bản khác nhau. Ngoài ra, có thể chơi với các thiết bị và cấu trúc liên kết khác nhau có thể là điều thú vị.</p>
+<p>Chúng ta sẽ làm mọi thứ trên EVE-NG với phiên bản cộng đồng.</p>
+<h4 id="bắt-đầu">Bắt đầu</h4>
+<p>Phiên bản cộng đồng có sẵn dưới dạng ISO và OVF để <a href="https://www.eve-ng.net/index.php/download/">tải xuống</a></p>
+<p>Chúng ta sẽ sử dụng bản tải xuống OVF nhưng với ISO, có tùy chọn xây dựng trên máy chủ bare metal mà không cần hypervisor.
+<img src="/Workshop001/images/5.PythonForNetworkAutomation/001-downloadEve.png" alt="Tải xuống Eve"></p>
+<p>Đối với hướng dẫn của chúng ta, chúng ta sẽ sử dụng VMware Workstation vì tôi có giấy phép thông qua vExpert của mình nhưng bạn cũng có thể sử dụng VMware Player hoặc bất kỳ tùy chọn nào khác được đề cập trong <a href="https://www.eve-ng.net/index.php/documentation/installation/system-requirement/">tài liệu</a>. Rất tiếc, chúng ta không thể sử dụng Virtual box mà chúng ta đã sử dụng trước đó!</p>
+<p>Đây cũng là nơi tôi đã gặp vấn đề với GNS3 với Virtual Box mặc dù được hỗ trợ.</p>
+<p><a href="https://www.vmware.com/uk/products/workstation-player.html">Tải xuống VMware Workstation Player - MIỄN PHÍ</a></p>
+<p><a href="https://www.vmware.com/uk/products/workstation-pro.html">VMware Workstation PRO</a> Cũng lưu ý rằng có giai đoạn đánh giá miễn phí!</p>
+<h4 id="cài-đặt-trên-vmware-workstation-pro">Cài đặt trên VMware Workstation PRO</h4>
+<p>Bây giờ chúng ta đã tải xuống và cài đặt phần mềm hypervisor của mình, và chúng ta đã tải xuống EVE-NG OVF. Nếu bạn đang sử dụng VMware Player, vui lòng cho tôi biết nếu quy trình này giống nhau.</p>
+<p>Bây giờ chúng ta đã sẵn sàng để cấu hình mọi thứ.</p>
+<p>Mở VMware Workstation và sau đó chọn <code>file</code> và <code>open</code>
+<img src="/Workshop001/images/5.PythonForNetworkAutomation/002-vMware.png" alt="Thiết lập VMware"></p>
+<p>Khi bạn tải xuống EVE-NG OVF Image, nó sẽ nằm trong một file nén. Giải nén nội dung ra thành một thư mục riêng để nó trông giống như thế này.
+<img src="/Workshop001/images/5.PythonForNetworkAutomation/003-vMware.png" alt="Thiết lập VMware"></p>
+<p>Điều hướng đến vị trí nơi bạn đã tải xuống EVE-NG OVF image và bắt đầu nhập.</p>
+<p>Đặt cho nó một tên dễ nhận biết và lưu trữ máy ảo ở đâu đó trên hệ thống của bạn.
+<img src="/Workshop001/images/5.PythonForNetworkAutomation/004-vMware.png" alt="Thiết lập VMware"></p>
+<p>Khi quá trình nhập hoàn tất, hãy tăng số lượng bộ xử lý lên 4 và bộ nhớ được phân bổ lên 8 GB. (Điều này sẽ được thực hiện sau khi nhập với phiên bản mới nhất, nếu không thì hãy chỉnh sửa cài đặt VM)</p>
+<p>Ngoài ra, hãy đảm bảo rằng hộp kiểm Virtualise Intel VT-x/EPT hoặc AMD-V/RVI được bật. Tùy chọn này hướng dẫn VMware workstation chuyển các cờ ảo hóa sang hệ điều hành khách (ảo hóa lồng nhau) Đây là vấn đề tôi đang gặp phải với GNS3 với Virtual Box mặc dù CPU của tôi cho phép điều này.</p>
+<p><img src="/Workshop001/images/5.PythonForNetworkAutomation/005-vMware.png" alt="Thiết lập VMware"></p>
+<h3 id="bật-nguồn--truy-cập">Bật nguồn &amp; Truy cập</h3>
+<p>Lưu ý &amp; Đường vòng: Nhớ rằng tôi đã đề cập rằng điều này sẽ không hoạt động với VirtualBox! Vâng, tôi đã gặp vấn đề tương tự với VMware Workstation và EVE-NG nhưng không phải do lỗi của nền tảng ảo hóa!</p>
+<p>Tôi đang chạy WSL2 trên Máy Windows của mình và điều này dường như loại bỏ khả năng chạy bất cứ thứ gì lồng nhau trong môi trường của bạn. Tôi bối rối vì sao VM Ubuntu lại chạy vì nó dường như loại bỏ khía cạnh ảo hóa Intel VT-d của CPU khi sử dụng WSL2.</p>
+<p>Để giải quyết vấn đề này, chúng ta có thể chạy lệnh sau trên máy Windows của mình và khởi động lại hệ thống, lưu ý rằng trong khi tắt thì bạn sẽ không thể sử dụng WSL2.</p>
+<p><code>bcdedit /set hypervisorlaunchtype off</code></p>
+<p>Khi bạn muốn quay lại và sử dụng WSL2, bạn sẽ cần chạy lệnh này và khởi động lại.</p>
+<p><code>bcdedit /set hypervisorlaunchtype auto</code></p>
+<p>Cả hai lệnh này đều phải được chạy với quyền quản trị!</p>
+<p>Ok quay lại chương trình, Bây giờ bạn nên có một máy đã được bật trong VMware Workstation và bạn nên có một lời nhắc trông giống như thế này.
+<img src="/Workshop001/images/5.PythonForNetworkAutomation/006-eVE-ng.png" alt="Eve-NG - Thiết lập"></p>
+<p>Trên lời nhắc trên bạn có thể sử dụng:</p>
+<p>tên người dùng = root mật khẩu = eve</p>
+<p>Sau đó bạn sẽ được yêu cầu cung cấp lại mật khẩu root, điều này sẽ được sử dụng để SSH vào máy chủ sau này.</p>
+<p>Sau đó chúng ta có thể thay đổi tên máy chủ.
+<img src="/Workshop001/images/5.PythonForNetworkAutomation/007-eVE-ng.png" alt="Eve-NG - Thiết lập"></p>
+<p>Tiếp theo, chúng ta xác định Tên miền DNS, tôi đã sử dụng tên dưới đây nhưng tôi không chắc liệu điều này có cần thay đổi sau này hay không.
+<img src="/Workshop001/images/5.PythonForNetworkAutomation/008-eVE-ng.png" alt="Eve-NG - Thiết lập"></p>
+<p>Sau đó chúng ta cấu hình mạng, tôi chọn static để địa chỉ IP được cấp sẽ được giữ nguyên sau khi khởi động lại.
+<img src="/Workshop001/images/5.PythonForNetworkAutomation/009-eVE-ng.png" alt="Eve-NG - Thiết lập"></p>
+<p>Bước cuối cùng, cung cấp địa chỉ IP tĩnh từ mạng có thể truy cập được từ máy trạm của bạn.
+<img src="/Workshop001/images/5.PythonForNetworkAutomation/010-eVE-ng.png" alt="Eve-NG - Thiết lập"></p>
+<p>Có một số bước bổ sung ở đây nơi bạn sẽ phải cung cấp mặt nạ mạng con cho mạng của mình, cổng mặc định và DNS.</p>
+<p>Khi hoàn tất, nó sẽ khởi động lại, khi nó hoạt động trở lại, bạn có thể lấy địa chỉ IP tĩnh của mình và đặt nó vào trình duyệt của bạn.
+<img src="/Workshop001/images/5.PythonForNetworkAutomation/011-eVE-ng.png" alt="Bảng điều khiển đăng nhập EVE"></p>
+<p>Tên người dùng mặc định cho GUI là <code>admin</code> và mật khẩu là <code>eve</code> trong khi tên người dùng mặc định cho SSH là <code>root</code> và mật khẩu là <code>eve</code> nhưng điều này đã được thay đổi nếu bạn đã thay đổi trong quá trình thiết lập.
+<img src="/Workshop001/images/5.PythonForNetworkAutomation/012-eVE-ng.png" alt="Bảng điều khiển đăng nhập EVE"></p>
+<p>Tôi đã chọn HTML5 cho bảng điều khiển thay vì native vì điều này sẽ mở một tab mới trong trình duyệt của bạn khi bạn đang điều hướng qua các bảng điều khiển khác nhau.</p>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/Workshop001/vi/4-networkautomation/" title="Tự động hóa mạng"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/Workshop001/vi/6-buildingourlab/" title="Xây Dựng Phòng Thí Nghiệm" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/Workshop001/js/clipboard.min.js?1726587100"></script>
+    <script src="/Workshop001/js/perfect-scrollbar.min.js?1726587100"></script>
+    <script src="/Workshop001/js/perfect-scrollbar.jquery.min.js?1726587100"></script>
+    <script src="/Workshop001/js/jquery.sticky.js?1726587100"></script>
+    <script src="/Workshop001/js/featherlight.min.js?1726587100"></script>
+    <script src="/Workshop001/js/highlight.pack.js?1726587100"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/Workshop001/js/modernizr.custom-3.6.0.js?1726587100"></script>
+    <script src="/Workshop001/js/learn.js?1726587100"></script>
+    <script src="/Workshop001/js/hugo-learn.js?1726587100"></script>
+
+    <link href="/Workshop001/mermaid/mermaid.css?1726587100" rel="stylesheet" />
+    <script src="/Workshop001/mermaid/mermaid.js?1726587100"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-158079754-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  </body>
+</html>
